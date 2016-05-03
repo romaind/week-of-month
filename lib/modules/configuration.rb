@@ -4,7 +4,7 @@ module WeekOfMonth
       :monday_active
 
     def initialize
-      @monday_active = false
+      @monday_active = true
     end
 
     def monday_active?

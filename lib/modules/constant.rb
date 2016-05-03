@@ -15,7 +15,7 @@ module WeekOfMonth
                     4 => 'Quatrième', 5 => 'Cinquième', 6 => 'Sixième', 7 => 'Septième'}
 
     # hash containing german words from one to seven
-    WEEK_OF_MONTH_IN_GER = { 1 => 'First', 2 => 'Second', 3 => 'Dritten',
+    WEEK_OF_MONTH_IN_GER = { 1 => 'Erste', 2 => 'Zweite', 3 => 'Dritten',
                     4 => 'Vierte', 5 => 'Fünfte', 6 => 'Sechste', 7 => 'siebte'}
 
     # hash containing japanese words from one to seven
@@ -35,7 +35,7 @@ module WeekOfMonth
                             :november => 11, :december => 12 }
 
     # array of ordered days names starting from sunday and ending with saturday.
-    DAYS_IN_SEQUENCE = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+    DAYS_IN_SEQUENCE = %w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday)
 
     # array of ordered days names starting from sunday and ending with saturday.
     WEEKS_IN_SEQUENCE = %w(Last First Second Third Fourth Fifth)

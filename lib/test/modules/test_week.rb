@@ -13,25 +13,25 @@ class TestWeek < Test::Unit::TestCase
 
       assert_equal 5, klass.new(2013,2,28).week_of_month
 
-      assert_equal 6, klass.new(2013,3,31).week_of_month
+      assert_equal 5, klass.new(2013,3,31).week_of_month
 
       assert_equal 5, klass.new(2013,4,30).week_of_month
 
       assert_equal 5, klass.new(2013,5,31).week_of_month
 
-      assert_equal 6, klass.new(2013,6,30).week_of_month
+      assert_equal 5, klass.new(2013,6,30).week_of_month
 
       assert_equal 5, klass.new(2013,7,31).week_of_month
 
       assert_equal 5, klass.new(2013,8,31).week_of_month
 
-      assert_equal 5, klass.new(2013,9,30).week_of_month
+      assert_equal 6, klass.new(2013,9,30).week_of_month
 
       assert_equal 5, klass.new(2013,10,31).week_of_month
 
       assert_equal 5, klass.new(2013,11,30).week_of_month
 
-      assert_equal 5, klass.new(2013,12,31).week_of_month
+      assert_equal 6, klass.new(2013,12,31).week_of_month
     end
   end
 
@@ -41,15 +41,15 @@ class TestWeek < Test::Unit::TestCase
 
       assert_equal 4, klass.new(2013,2,28).general_week_of_month
 
-      assert_equal 5, klass.new(2013,3,31).general_week_of_month
+      assert_equal 4, klass.new(2013,3,31).general_week_of_month
 
-      assert_equal 4, klass.new(2013,4,30).general_week_of_month
+      assert_equal 5, klass.new(2013,4,30).general_week_of_month
 
       assert_equal 4, klass.new(2013,5,31).general_week_of_month
 
-      assert_equal 5, klass.new(2013,6,30).general_week_of_month
+      assert_equal 4, klass.new(2013,6,30).general_week_of_month
 
-      assert_equal 4, klass.new(2013,7,31).general_week_of_month
+      assert_equal 5, klass.new(2013,7,31).general_week_of_month
 
       assert_equal 4, klass.new(2013,8,31).general_week_of_month
 
@@ -66,20 +66,20 @@ class TestWeek < Test::Unit::TestCase
   def test_week_split
     [Date,Time].each do |klass|
       object = klass.new(2013,1,10)
-      split_for_january = [[nil,nil, 1, 2, 3, 4, 5],
-                             [6, 7, 8, 9, 10, 11, 12],
-                             [13, 14, 15, 16, 17, 18, 19],
-                             [20, 21, 22, 23, 24, 25, 26],
-                             [27, 28, 29, 30, 31]]
+      split_for_january = [[nil, 1, 2, 3, 4, 5, 6],
+                             [7, 8, 9, 10, 11, 12, 13],
+                             [14, 15, 16, 17, 18, 19, 20],
+                             [21, 22, 23, 24, 25, 26, 27],
+                             [28, 29, 30, 31]]
       assert_kind_of Array,object.week_split
       assert_equal split_for_january, object.week_split
 
       object = Date.new(2013,2,15)
-      split_for_october = [[nil, nil, nil, nil, nil, 1, 2],
-                           [3, 4, 5, 6, 7, 8, 9],
-                           [10, 11, 12, 13, 14, 15, 16],
-                           [17, 18, 19, 20, 21, 22, 23],
-                           [24, 25, 26, 27, 28]]
+      split_for_october = [[nil, nil, nil, nil, 1, 2, 3],
+                           [4, 5, 6, 7, 8, 9, 10],
+                           [11, 12, 13, 14, 15, 16, 17],
+                           [18, 19, 20, 21, 22, 23, 24],
+                           [25, 26, 27, 28]]
       assert_kind_of Array,object.week_split
       assert_equal split_for_october, object.week_split
     end
@@ -94,7 +94,7 @@ class TestWeek < Test::Unit::TestCase
 
   def test_second_week?
     [Date,Time].each do |klass|
-      assert klass.new(2013,1,6).second_week?
+      assert klass.new(2013,1,7).second_week?
       assert !klass.new(2013,1,2).second_week?
     end
   end
@@ -117,8 +117,8 @@ class TestWeek < Test::Unit::TestCase
     [Date,Time].each do |klass|
       assert_equal 'First', klass.new(2012,12,1).week_of_month_in_eng
       assert_equal 'Second', klass.new(2012,12,4).week_of_month_in_eng
-      assert_equal 'Third', klass.new(2012,12,9).week_of_month_in_eng
-      assert_equal 'Fourth', klass.new(2012,12,16).week_of_month_in_eng
+      assert_equal 'Third', klass.new(2012,12,10).week_of_month_in_eng
+      assert_equal 'Fourth', klass.new(2012,12,17).week_of_month_in_eng
       assert_equal 'Fifth', klass.new(2012,12,24).week_of_month_in_eng
       assert_equal 'Sixth', klass.new(2012,12,31).week_of_month_in_eng
     end
@@ -128,8 +128,8 @@ class TestWeek < Test::Unit::TestCase
     [Date,Time].each do |klass|
       assert_equal 'Premier', klass.new(2012,12,1).week_of_month_in_fr
       assert_equal 'Deuxième', klass.new(2012,12,4).week_of_month_in_fr
-      assert_equal 'Troisième', klass.new(2012,12,9).week_of_month_in_fr
-      assert_equal 'Quatrième', klass.new(2012,12,16).week_of_month_in_fr
+      assert_equal 'Troisième', klass.new(2012,12,10).week_of_month_in_fr
+      assert_equal 'Quatrième', klass.new(2012,12,17).week_of_month_in_fr
       assert_equal 'Cinquième', klass.new(2012,12,24).week_of_month_in_fr
       assert_equal 'Sixième', klass.new(2012,12,31).week_of_month_in_fr
     end
@@ -137,10 +137,10 @@ class TestWeek < Test::Unit::TestCase
 
   def test_week_of_month_in_ger
     [Date,Time].each do |klass|
-      assert_equal 'First', klass.new(2012,12,1).week_of_month_in_ger
-      assert_equal 'Second', klass.new(2012,12,4).week_of_month_in_ger
-      assert_equal 'Dritten', klass.new(2012,12,9).week_of_month_in_ger
-      assert_equal 'Vierte', klass.new(2012,12,16).week_of_month_in_ger
+      assert_equal 'Erste', klass.new(2012,12,1).week_of_month_in_ger
+      assert_equal 'Zweite', klass.new(2012,12,4).week_of_month_in_ger
+      assert_equal 'Dritten', klass.new(2012,12,10).week_of_month_in_ger
+      assert_equal 'Vierte', klass.new(2012,12,17).week_of_month_in_ger
       assert_equal 'Fünfte', klass.new(2012,12,24).week_of_month_in_ger
       assert_equal 'Sechste', klass.new(2012,12,31).week_of_month_in_ger
     end
@@ -150,8 +150,8 @@ class TestWeek < Test::Unit::TestCase
     [Date,Time].each do |klass|
       assert_equal '最初', klass.new(2012,12,1).week_of_month_in_jap
       assert_equal '秒', klass.new(2012,12,4).week_of_month_in_jap
-      assert_equal 'サード', klass.new(2012,12,9).week_of_month_in_jap
-      assert_equal '第4回', klass.new(2012,12,16).week_of_month_in_jap
+      assert_equal 'サード', klass.new(2012,12,10).week_of_month_in_jap
+      assert_equal '第4回', klass.new(2012,12,17).week_of_month_in_jap
       assert_equal '第五', klass.new(2012,12,24).week_of_month_in_jap
       assert_equal 'シックス',  klass.new(2012,12,31).week_of_month_in_jap
     end
@@ -187,23 +187,6 @@ class TestWeek < Test::Unit::TestCase
     end
   end
 
-  def test_beginning_of_week
-    [Date,Time].each do |klass|
-      assert_equal klass.new(2012,11,25), klass.new(2012,11,25).beginning_of_week
-      assert_equal klass.new(2012,11,25), klass.new(2012,11,26).beginning_of_week
-      assert_equal klass.new(2012,11,25), klass.new(2012,11,30).beginning_of_week
-    end
-  end
-
-  def test_end_of_week
-    [Date,Time].each do |klass|
-      assert_equal klass.new(2012,12,1), klass.new(2012,12,1).end_of_week
-      assert_equal klass.new(2012,12,8), klass.new(2012,12,2).end_of_week
-      assert_equal klass.new(2012,12,8), klass.new(2012,12,3).end_of_week
-      assert_equal klass.new(2012,12,8), klass.new(2012,12,7).end_of_week
-    end
-  end
-
   def test_next_week
     [Date,Time].each do |klass|
       assert_equal klass.new(2012,12,8), klass.new(2012,12,1).next_week
@@ -220,26 +203,5 @@ class TestWeek < Test::Unit::TestCase
       assert_equal klass.new(2012,12,29), klass.new(2013,1,5).previous_week
       assert_equal klass.new(2012,12,19), klass.new(2012,12,26).previous_week
     end
-  end
-
-  def test_monday_configured_beginning_of_week
-    WeekOfMonth.configuration.monday_active = true
-    [Date,Time].each do |klass|
-      assert_equal klass.new(2012,11,19), klass.new(2012,11,25).beginning_of_week
-      assert_equal klass.new(2012,11,26), klass.new(2012,11,26).beginning_of_week
-      assert_equal klass.new(2012,11,26), klass.new(2012,11,30).beginning_of_week
-    end
-    WeekOfMonth.configuration.monday_active = false
-  end
-
-  def test_monday_configured_end_of_week
-    WeekOfMonth.configuration.monday_active = true
-    [Date,Time].each do |klass|
-      assert_equal klass.new(2012,12,2), klass.new(2012,12,1).end_of_week
-      assert_equal klass.new(2012,12,2), klass.new(2012,12,2).end_of_week
-      assert_equal klass.new(2012,12,9), klass.new(2012,12,3).end_of_week
-      assert_equal klass.new(2012,12,9), klass.new(2012,12,7).end_of_week
-    end
-    WeekOfMonth.configuration.monday_active = false
   end
 end
