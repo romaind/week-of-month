@@ -37,7 +37,7 @@ class TestConstant < Test::Unit::TestCase
                      5 => 'Cinquième', 6 => 'Sixième',
                      7 => "Septième" }, klass::WEEK_OF_MONTH_IN_FR)
 
-      assert_equal({ 1 => 'First', 2 => 'Second',
+      assert_equal({ 1 => 'Erste', 2 => 'Zweite',
                      3 => 'Dritten', 4 => 'Vierte',
                      5 => 'Fünfte', 6 => 'Sechste',
                      7 => "siebte" }, klass::WEEK_OF_MONTH_IN_GER)
@@ -57,7 +57,7 @@ class TestConstant < Test::Unit::TestCase
                      :august => 31, :september => 30, :october => 31,
                      :november => 30, :december => 31 }, klass::MONTH_WITH_DAY)
 
-      assert_equal(%w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday), klass::DAYS_IN_SEQUENCE)
+      assert_equal(%w(Monday Tuesday Wednesday Thursday Friday Saturday Sunday), klass::DAYS_IN_SEQUENCE)
     end
   end
 
